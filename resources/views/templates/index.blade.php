@@ -137,6 +137,11 @@
       $(function () {
         $('#siswa').DataTable();
       })
+
+      function eximForm() {
+        $('#modal-exim').modal('show');
+        $('#modal-exim form')[0].reset();
+      }
     </script>
   </body>
 </html>

@@ -4,10 +4,11 @@
 <div class="row">
 <div class="col-md-12">
     <h4>
-        <a onclick="#" class="btn btn-success">Import Siswa</a>
-        <a onclick="#" class="btn btn-primary">Tambah Siswa</a>
+        <a onclick="eximForm()" class="btn btn-success">Import Siswa</a>
+        <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#lihat"> Tambah Siswa </button>
         </h4>
     </div>
+    @include('siswa/form')
 </div>    
 <div class="row">
     <div class="col-md-12">
@@ -34,11 +35,15 @@
                     <td> {{ $list->nama }} </td>
                     <td> {{ $list->kelas }} </td>
                     <td> {{ $list->jurusan }} </td>
-                    <td>s</td>
+                    <td>
+                        <a href="#" class="btn btn-primary">Edit</a>
+                        <a href="#" class="btn btn-danger">Hapus</a>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 </div>
 </div>
+
 @endsection

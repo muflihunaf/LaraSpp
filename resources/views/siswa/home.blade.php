@@ -37,7 +37,7 @@
                     <td> {{ $list->jurusan }} </td>
                     <td>
                         <a href="#" class="btn btn-primary">Edit</a>
-                        <a href="#" class="btn btn-danger">Hapus</a>
+                        <a href=" {{ route('siswa.delete', $list->id) }}"class="btn btn-danger">Hapus</a>
                     </td>
                 </tr>
             @endforeach

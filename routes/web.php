@@ -21,3 +21,4 @@ Route::get('/home', 'SiswaController@home')->name('home');
 Route::get('export', 'SiswaController@export')->name('export.siswa');
 Route::post('home/create', 'SiswaController@store')->name('siswa.create');
 Route::get('home/{siswa}/hapus', 'SiswaController@destroy')->name('siswa.delete');
+Route::post('import', 'SiswaController@import')->name('import.siswa');

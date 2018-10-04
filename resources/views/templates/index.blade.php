@@ -53,6 +53,7 @@
                   <li><a href="{{ url('/bayar')}}"><i class="fa fa-edit"></i> Pembayaran </a></li>
                   <li><a href="{{ url('/siswa')}} "><i class="fa fa-user"></i> Data Siswa </a>
                   </li>
+                  <li><a><i class="fa fa-book"></i> Data Kelas </a></li>
                   <li><a><i class="fa fa-book"></i> laporan </a></li>
                   
               </div>

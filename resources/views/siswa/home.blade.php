@@ -4,7 +4,7 @@
 <div class="row">
 <div class="col-md-12">
     <h4>
-        <a onclick="eximForm()" class="btn btn-success">Import Siswa</a>
+        <a onclick="eximForm()" class="btn btn-success">Import / Export</a>
         <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#lihat"> Tambah Siswa </button>
         </h4>
     </div>
@@ -19,7 +19,6 @@
                 <th>Nisn</th>
                 <th>Nama</th>
                 <th>Kelas</th>
-                <th>Jurusan</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -33,11 +32,10 @@
                     <td> {{ $no++ }} </td>
                     <td> {{ $list->nisn }} </td>
                     <td> {{ $list->nama }} </td>
-                    <td> {{ $list->kelas }} </td>
-                    <td> {{ $list->jurusan }} </td>
+                    <td> {{ $list->id_kelas }} </td>
                     <td>
                         <a href="#" class="btn btn-primary">Edit</a>
-                        <a href=" {{ route('siswa.delete', $list->id) }}"class="btn btn-danger">Hapus</a>
+                        <a href=" {{ route('siswa.delete', $list->id_siswa) }}"class="btn btn-danger">Hapus</a>
                     </td>
                 </tr>
             @endforeach

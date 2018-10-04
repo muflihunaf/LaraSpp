@@ -28,7 +28,7 @@
 <div class="modal" id="modal-exim" tabindex="1" role="dialog" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog modal-lg" >
         <div class="modal-content">
-            <form action="" method="post" class="form-horizontal" data-toggle="validator" enctype="multipart/form-data">
+            <form action=" {{ route('import.siswa') }} " method="post" class="form-horizontal" data-toggle="validator" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="close">

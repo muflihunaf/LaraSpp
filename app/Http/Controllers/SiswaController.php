@@ -36,8 +36,7 @@ class SiswaController extends Controller
         $siswa = new Siswa;
         $siswa->nisn = $request->nisn;
         $siswa->nama = $request->nama;
-        $siswa->kelas = $request->kelas;
-        $siswa->jurusan = $request->jurusan;
+        $siswa->id_kelas = $request->kelas;
         $siswa->save();
 
         return redirect(route('home'));
@@ -53,6 +52,24 @@ class SiswaController extends Controller
             return redirect(route('home'));
         }
 
+    }
+
+    public function import(Request $request)
+    {
+        if ($request->hasFile('file')) {
+            $path = $request->file('file')->getRealPath();
+            $data = Excel::load($path, function($reader){})->get();
+                if (!empty($data) && $data->count()) {
+                    foreach ($data as $key => $value) {
+                        $siswa = new Siswa;
+                        $siswa->nisn = $value->nisn;
+                        $siswa->nama = $value->nama;
+                        $siswa->id_kelas = $value->id_kelas;
+                        $siswa->save();
+                    }
+                }
+        }
+        return back();
     }
 
 }

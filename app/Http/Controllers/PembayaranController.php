@@ -46,7 +46,7 @@ class PembayaranController extends Controller
     {
         $siswa = Siswa::find($id);
         $bayar = new Pembayaran;
-
+        
     }
 
 }

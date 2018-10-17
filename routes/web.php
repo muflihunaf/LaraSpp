@@ -24,3 +24,5 @@ Route::get('home/{siswa}/hapus', 'SiswaController@destroy')->name('siswa.delete'
 Route::post('import', 'SiswaController@import')->name('import.siswa');
 Route::get('/pembayaran', 'PembayaranController@index')->name('bayar.index');
 Route::get('/pembayaran/{siswa}/daftar', 'PembayaranController@daftar')->name('bayar.daftar');
+Route::post('/pembayaran/{siswa}/ulang', 'PembayaranController@ulang')->name('bayar.daftarulang');
+Route::post('/pembayaran/{siswa}/lunas', 'PembayaranController@lunas')->name('bayar.lunas');

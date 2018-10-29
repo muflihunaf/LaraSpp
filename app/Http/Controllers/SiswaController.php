@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Siswa;
 use Excel;
+use DB;
 class SiswaController extends Controller
 {
     public function home()
     {
-        $siswa = Siswa::all();
+        $siswa = DB::table('siswa')
+        ->join('kelas', 'siswa.id_kelas', '=','kelas.id_kelas')
+        ->select('siswa.*','kelas.*')
+        ->get();
 
         return view('siswa/home', compact('siswa'));
     }

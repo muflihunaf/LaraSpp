@@ -34,17 +34,42 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <form action=" {{ route('bayar.lunas', $siswa->id_siswa) }} " method="post" class="">
+            <table class="table table-striped" id="siswa">
+            <thead>
+                <tr>
+                    <td>No </td>
+                    <td>Bulan</td>
+                    <td>Status</td>
+                    <td>Aksi</td>
+                </tr>
+            </thead>
+            <tbody>
+                    @php
+                    $no = 1;
+                @endphp
             @foreach ($kartu as $item)
-            <div class="form-group col-md-3">
-                <h2> {{ $item->bulan }} </h2>
-                <div class="col-md-2 form-group">
-                <input type="checkbox" name="bulan" class="" value="20000">Bayar
-            </div>
-            </div>
+            @php
+                $status = "Belum Dibayar"    
+            @endphp
+            @if ($item->status == $status)
+                
+            
+            <tr>
+                <td> {{ $no++ }} </td>
+                <td> {{ $item->bulan }}  </td>
+                <td> {{ $item->status }} </td>
+                {{-- <td><a href="pembayaran/{{ $item->id_kartu }}/lunas" onclick="event.preventDefault();document.getElementById('lunas').submit(); " class="btn btn-primary">Bayar</a></td> --}}
+                <td><form action="/pembayaran/{{ $item->id_kartu }}/lunas" id="lunas" method="post">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="status" value="Lunas">
+                    <input type="submit">
+                </form>
+            </td>
+            </tr>
+            @endif
             @endforeach
-            <button type="submit" class="pull-right">Bayar</button>
-        </form>
+        </tbody>
+        </table>
     </div>
 </div>
 

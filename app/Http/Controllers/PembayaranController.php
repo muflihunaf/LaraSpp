@@ -25,7 +25,7 @@ class PembayaranController extends Controller
     public function daftar($id)
     {
         $siswa = Siswa::find($id)->join('kelas','kelas.id_kelas', '=', 'siswa.id_kelas')->where('siswa.id_siswa', '=', $id)->first();
-        $kartu = Kartu::where('id_siswa','=',$siswa->id_siswa,'AND', 'status','=','Belum Dibayar')->get();
+        $kartu = Kartu::where('id_siswa','=',$siswa->id_siswa)->get();
         return view('bayar.daftar',compact('siswa','kartu'));
     }
 
@@ -44,9 +44,11 @@ class PembayaranController extends Controller
     }
     public function lunas(Request $request,$id)
     {
-        $siswa = Siswa::find($id);
-        $bayar = new Pembayaran;
+        $bayar = Kartu::find($id);
+        $bayar->status = 'Lunas';
+        $bayar->save();
         
+        return redirect('/pembayaran');
     }
 
 }

@@ -37,13 +37,6 @@
                     <h2 class="modal-title">Export / Import Data</h2>
                 </div>
                 <div class="modal-body">
-                    <div class="form-group">
-                        <label for="Export" class="col-md-2">Export</label>
-                        <div class="col-md-6">
-                            <a href=" {{ route('export.siswa') }} " class="btn btn-success">Export</a>
-                            <span class="help-block with-errors"></span>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="modal-body">

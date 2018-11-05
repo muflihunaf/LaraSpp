@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pembayaran;
+use App\TahunAjaran;
 use App\Siswa;
 Use App\Kelas;
 use App\Kartu;
@@ -25,8 +26,9 @@ class PembayaranController extends Controller
     public function daftar($id)
     {
         $siswa = Siswa::find($id)->join('kelas','kelas.id_kelas', '=', 'siswa.id_kelas')->where('siswa.id_siswa', '=', $id)->first();
-        $kartu = Kartu::where('id_siswa','=',$siswa->id_siswa)->get();
-        return view('bayar.daftar',compact('siswa','kartu'));
+        $kartu = Kartu::join('tahun_ajaran','kartu.id_tahun','=','tahun_ajaran.id_tahun')->where('id_siswa','=',$siswa->id_siswa)->get();
+        $tahun = TahunAjaran::all();
+        return view('bayar.daftar',compact('siswa','kartu','tahun'));
     }
 
     public function ulang(Request $request, $id)
@@ -38,6 +40,8 @@ class PembayaranController extends Controller
             $kartu->bulan = $bulan[$i];
             $kartu->status = 'Belum Dibayar';
             $kartu->id_siswa = $siswa->id_siswa;
+            $kartu->id_tahun = $request->id_tahun;
+            $kartu->tanggal = date('Y-m-d');
             $kartu->save();
         }
         return redirect()->back();
@@ -46,9 +50,10 @@ class PembayaranController extends Controller
     {
         $bayar = Kartu::find($id);
         $bayar->status = 'Lunas';
+        $bayar->tanggal = date('Y-m-d');
         $bayar->save();
         
-        return redirect('/pembayaran');
+        return redirect()->back();
     }
 
 }

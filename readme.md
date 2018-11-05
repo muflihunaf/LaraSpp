@@ -6,3 +6,6 @@ Projek Ini Dikerjakan Untuk Pengumpulan Tugas Akhir Sekolah Smkn 1 Dlanggu Dan D
 - Masih Dalam Tahap Pengembangan
 - Bisa Melakukan CRUD Siswa
 -  Import Dan Export Data Siswa
+- Melakukan Pembayaran
+
+## Jangan Lupa Bersyukur

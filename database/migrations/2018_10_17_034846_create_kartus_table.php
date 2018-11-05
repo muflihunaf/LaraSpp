@@ -18,7 +18,8 @@ class CreateKartusTable extends Migration
             $table->string('bulan');
             $table->string('status',20);
             $table->string('id_siswa',20);
-            $table->timestamps();
+            $table->string('id_tahun', 20);
+            $table->date('tanggal');
         });
     }
 

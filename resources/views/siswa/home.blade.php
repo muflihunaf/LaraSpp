@@ -4,7 +4,7 @@
 <div class="row">
 <div class="col-md-12">
     <h4>
-        <a onclick="eximForm()" class="btn btn-success">Import / Export</a>
+        <a onclick="eximForm()" class="btn btn-success">Import Data</a>
         <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#lihat"> Tambah Siswa </button>
         </h4>
     </div>

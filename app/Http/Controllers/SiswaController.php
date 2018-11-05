@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Siswa;
+use App\Kelas;
 use Excel;
+
 use DB;
 class SiswaController extends Controller
 {
@@ -19,7 +21,7 @@ class SiswaController extends Controller
     }
     public function export()
     {
-        $siswa = Siswa::select('nisn','nama','kelas','jurusan')->get();
+        $siswa = Siswa::select('nisn','nama')->get();
         return Excel::create('data_siswa', function($excel) use ($siswa)
         {
             $excel->sheet('mysheet', function($sheet) use ($siswa)
@@ -63,7 +65,7 @@ class SiswaController extends Controller
         if ($request->hasFile('file')) {
             $path = $request->file('file')->getRealPath();
             $data = Excel::load($path, function($reader){})->get();
-                if (!empty($data) && $data->count()) {
+                if (!empty($data) && $data->count()) {  
                     foreach ($data as $key => $value) {
                         $siswa = new Siswa;
                         $siswa->nisn = $value->nisn;

@@ -20,6 +20,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/siswa', 'SiswaController@home')->name('siswa');
 Route::get('export', 'SiswaController@export')->name('export.siswa');
+Route::get('/tahunajaran', 'TahunController@index')->name('home.tahun');
+Route::post('/tahunajaran/tambah', 'TahunController@store')->name('tambah.tahun');
 Route::post('home/create', 'SiswaController@store')->name('siswa.create');
 Route::get('home/{siswa}/hapus', 'SiswaController@destroy')->name('siswa.delete');
 Route::post('import', 'SiswaController@import')->name('import.siswa');

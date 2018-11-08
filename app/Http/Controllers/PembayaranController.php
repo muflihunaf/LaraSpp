@@ -8,6 +8,7 @@ use App\TahunAjaran;
 use App\Siswa;
 Use App\Kelas;
 use App\Kartu;
+use PDF;
 use DB;
 
 class PembayaranController extends Controller
@@ -56,4 +57,12 @@ class PembayaranController extends Controller
         return redirect()->back();
     }
 
+    public function cetak($id)
+    {
+        $cetak = Kartu::find($id)->join('siswa','siswa.id_siswa','=','kartu.id_siswa')->join('tahun_ajaran','kartu.id_tahun','=','tahun_ajaran.id_tahun')->where('id_kartu','=',$id)->get();
+        $pdf = PDF::loadview('laporan/cetak',compact('cetak'));
+        $pdf->setPaper('a4','potrait');
+
+        return $pdf->stream();
+    }
 }

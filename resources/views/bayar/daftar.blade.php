@@ -68,14 +68,14 @@
                                 class="btn btn-primary">Bayar</a></td> --}}
                         @if ($item->status == $status)
                         <td>
-                            <form action="/pembayaran/{{ $item->id_kartu }}/lunas" id="lunas" method="post">
+                            <form action=" {{ route('bayar.lunas',$item->id_kartu) }} " id="lunas" method="post">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="status" value="Lunas">
                                 <input type="submit" class="btn btn-primary" value="Bayar">
                             </form>
                         </td>
                         @else
-                        <td> <a href="" class="btn btn-primary">Cetak Bukti</a> </td>
+                    <td> <a href="{{ route('bayar.cetak',$item->id_kartu) }}" class="btn btn-info">Cetak Bukti</a> </td>
                     </tr>
                     
                     

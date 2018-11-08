@@ -41,7 +41,7 @@
             <table class="table table-striped" id="siswa">
                 <thead>
                     <tr>
-                        <td></td>
+                        
                         <td>No </td>
                         <td>Bulan</td>
                         <td>Status</td>
@@ -59,7 +59,6 @@
                     @endphp
                     
                     <tr>
-                        <td><input type="checkbox" name="" id=""></td>
                         <td> {{ $no++ }} </td>
                         <td> {{ $item->bulan }} </td>
                         <td> {{ $item->status }} </td>

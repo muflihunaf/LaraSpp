@@ -35,3 +35,4 @@ Route::post('/kelas/tambah', 'KelasController@store')->name('tambah.kelas');
 Route::get('/kelas/{kelas}/hapus','KelasController@destroy')->name('hapus.kelas');
 Route::get('/kelas/{kelas}/ubah','KelasController@ubah')->name('ubah.kelas');
 Route::post('kelas/{kelas}/update', 'KelasController@update')->name('update.kelas');
+Route::get('/laporan','RekapController@index')->name('rekap');

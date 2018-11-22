@@ -18,6 +18,7 @@ class CreateSiswasTable extends Migration
             $table->string('nisn')->unique();
             $table->string('nama');
             $table->string('id_kelas');
+            $table->string('password');
         });
     }
 

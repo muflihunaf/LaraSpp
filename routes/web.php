@@ -1,23 +1,21 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function () {
     return view('welcome');
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::group(['prefix' => 'siswa'],function(){
+        Route::get('/login', 'AuthSiswa\LoginController@showLogin')->name('siswa.login');
+        Route::post('/login', 'AuthSiswa\LoginController@login')->name('siswa.login.input');
+        Route::get('/','UsersiswaController@index')->name('user.home');
+        Route::get('{siswa}/spp', 'UsersiswaController@lihat')->name('lihat.spp');
+        Route::get('{kartu}/cetak', 'UsersiswaController@cetak')->name('siswa.cetak');
+    });
+Route::middleware('auth')->group(function()
+{
+Route::group(['prefix' => 'admin'],function(){ 
+Route::get('home', 'HomeController@index')->name('home');
 Route::get('/siswa', 'SiswaController@home')->name('siswa');
 Route::get('export', 'SiswaController@export')->name('export.siswa');
 Route::get('/tahunajaran', 'TahunController@index')->name('home.tahun');
@@ -36,3 +34,6 @@ Route::get('/kelas/{kelas}/hapus','KelasController@destroy')->name('hapus.kelas'
 Route::get('/kelas/{kelas}/ubah','KelasController@ubah')->name('ubah.kelas');
 Route::post('kelas/{kelas}/update', 'KelasController@update')->name('update.kelas');
 Route::get('/laporan','RekapController@index')->name('rekap');
+Route::get('/laporan/{tahun}/rekap', 'RekapController@lihat')->name('lihat.rekap');
+});
+});

@@ -24,16 +24,16 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="{{ url('/home') }} " class="site_title"><i class="fa fa-paw"></i> <span>{{ config('app.name', 'Laravel') }}</span></a>
+              <a href="{{ route('home') }} " class="site_title"><i class="fa fa-paw"></i> <span>{{ config('app.name', 'Laravel') }}</span></a>
             </div>
 
             <div class="clearfix"></div>
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              <!-- <div class="profile_pic">
-                <img src="{{asset('img.jpg') }}" alt="..." class="img-circle profile_img">
-              </div> -->
+               <div class="profile_pic">
+                <img src="{{asset('/img.jpg') }}" alt="..." class="img-circle profile_img">
+              </div> 
               <div class="profile_info">
                 <span>Welcome,</span>
                 <h2>{{ Auth::user()->name }}</h2>
@@ -48,13 +48,13 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a href="{{ url('/home')}} "><i class="fa fa-home"></i> Home </a>
+                  <li><a href="{{ route('home')}} "><i class="fa fa-home"></i> Home </a>
                   </li>
                   <li><a href="{{ route('siswa')}} "><i class="fa fa-user"></i> Data Siswa </a></li>
                   <li><a href="{{ route('bayar.index')}}"><i class="fa fa-edit"></i> Pembayaran </a></li>
                   <li><a href="{{ route('home.kelas') }} " ><i class="fa fa-book"></i> Data Kelas </a></li>
                   <li><a href="{{ route('home.tahun') }} " ><i class="fa fa-calendar"></i> Tahun Ajaran </a></li>
-                <li><a href="{{ route('rekap') }}"><i class="fa fa-book"></i> laporan </a></li>
+                  {{-- <li><a href="{{ route('rekap') }}"><i class="fa fa-book"></i> laporan </a></li> --}}
                   
               </div>
 

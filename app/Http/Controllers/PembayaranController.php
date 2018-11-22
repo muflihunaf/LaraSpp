@@ -53,7 +53,11 @@ class PembayaranController extends Controller
         $bayar->status = 'Lunas';
         $bayar->tanggal = date('Y-m-d');
         $bayar->save();
-        
+        // $cetak = Kartu::find($id)->join('siswa','siswa.id_siswa','=','kartu.id_siswa')->join('tahun_ajaran','kartu.id_tahun','=','tahun_ajaran.id_tahun')->where('id_kartu','=',$id)->get();
+        // $pdf = PDF::loadview('laporan/cetak',compact('cetak'));
+        // $pdf->setPaper('a4','potrait');
+
+        // return $pdf->stream();
         return redirect()->back();
     }
 

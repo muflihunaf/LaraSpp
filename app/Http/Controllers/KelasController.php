@@ -18,7 +18,7 @@ class KelasController extends Controller
         $baru->kelas = $request->kelas;
         $baru->jurusan = $request->jurusan;
         $baru->save();
-        return redirect('/kelas');
+        return redirect()->route('home.kelas');
     }
     public function destroy($id)
     {
@@ -26,7 +26,7 @@ class KelasController extends Controller
 
         if ($hapus) {
             $hapus->delete();
-            return redirect('/kelas');
+            return redirect()->route('home.kelas');
         }
     }
     public function ubah($id)

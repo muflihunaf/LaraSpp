@@ -11,13 +11,14 @@
                 <input type="text" name="nama" class="form-control">
         </div>
         <div class="col-md-2 form-group">
-                <label for="nama" class="control-label">Kelas</label>
-                <input type="text" name="kelas" class="form-control">
+            <label>Kelas</label>
+            <select name="kelas" class="form-control">
+                @foreach ($kelas as $item)
+                    <option value=" {{ $item->id_kelas }} "> {{ $item->kelas .' ' .$item->jurusan }} </option>
+                @endforeach
+            </select>
         </div>
-        <div class="col-md-2 form-group">
-                <label for="nama" class="control-label">Jurusan</label>
-                <input type="text" name="jurusan" class="form-control">
-        </div>
+
         <div class="col-md-2 form-group" >
             <input type="submit" name="submit" class="btn btn-primary form-control" value="Simpan" style="margin-top:23px">
         </div>
@@ -36,14 +37,19 @@
                     </button>
                     <h2 class="modal-title">Export / Import Data</h2>
                 </div>
-                <div class="modal-body">
-                </div>
 
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="import" class="col-md-2">Import</label>
                         <div class="col-md-6">
                             <input type="file" name="file" id="file" class="form-control">
+                            <span class="help-block with-errors"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="import" class="col-md-2">Contoh</label>
+                        <div class="col-md-6">
+                            <a href=" {{ route('export.siswa') }} " class="btn btn-success">Download</a>
                             <span class="help-block with-errors"></span>
                         </div>
                     </div>

@@ -17,7 +17,9 @@ class SiswaController extends Controller
         ->select('siswa.*','kelas.*')
         ->get();
 
-        return view('siswa/home', compact('siswa'));
+        $kelas = Kelas::all();
+
+        return view('siswa/home', compact('siswa','kelas'));
     }
     public function export()
     {
@@ -35,17 +37,16 @@ class SiswaController extends Controller
         $request->validate([
             'nisn' => 'required|numeric',
             'nama' => 'required',
-            'kelas' => 'required',
-            'jurusan' => 'required',
         ]);
         
         $siswa = new Siswa;
         $siswa->nisn = $request->nisn;
         $siswa->nama = $request->nama;
         $siswa->id_kelas = $request->kelas;
+        $siswa->password = bcrypt($request->nisn);
         $siswa->save();
 
-        return redirect(route('home'));
+        return redirect(route('siswa'));
 
     }
 
@@ -71,6 +72,7 @@ class SiswaController extends Controller
                         $siswa->nisn = $value->nisn;
                         $siswa->nama = $value->nama;
                         $siswa->id_kelas = $value->id_kelas;
+                        $siswa->password = bcrypt($value->nisn);
                         $siswa->save();
                     }
                 }

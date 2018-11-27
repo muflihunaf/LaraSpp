@@ -15,6 +15,7 @@
     <link href="{{ asset('assets/vendors/bootstrap-daterangepicker/daterangepicker.css ') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/custom.min.css ') }}" rel="stylesheet">
     <link rel="stylesheet" href=" {{ asset('css/dataTables.bootstrap.min.css') }} ">
+    <link rel="stylesheet" href=" {{ asset('sweetalert2/sweetalert2.min.css') }} ">
     
   </head>
 
@@ -133,6 +134,7 @@
     <script src="{{ asset('assets/js/custom.min.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/dataTables.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('sweetalert2/sweetalert2.min.js') }}"></script>
     <script>
       $(function () {
         $('#siswa').DataTable();
@@ -142,6 +144,11 @@
         $('#modal-exim').modal('show');
         $('#modal-exim form')[0].reset();
       }
+    </script>
+    <script>
+    function sweet() {
+      swal("Good Job", "Kau Klik", "success")
+    }
     </script>
   </body>
 </html>

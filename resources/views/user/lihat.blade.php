@@ -55,7 +55,7 @@
                         @if ($item->status == $status)
                             <td>--</td>
                         @else
-                    <td> <a href="{{ route('siswa.cetak',$item->id_kartu) }}" class="btn btn-info">Cetak Bukti</a> </td>
+                    <td> <a href="{{ route('siswa.cetak',$item->id_kartu) }}" class="btn btn-info" target="_blank">Cetak Bukti</a> </td>
                     </tr>
                     
                     

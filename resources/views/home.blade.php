@@ -9,6 +9,7 @@
 
                 <div class="panel-body">
                     Selamat Datang {{ Auth::user()->name }}
+                    <button onclick="sweet()">klik</button>
                 </div>
             </div>
         </div>

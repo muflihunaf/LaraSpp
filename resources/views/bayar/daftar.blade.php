@@ -74,7 +74,7 @@
                             </form>
                         </td>
                         @else
-                    <td> <a href="{{ route('bayar.cetak',$item->id_kartu) }}" class="btn btn-info">Cetak Bukti</a> </td>
+                    <td> <a href="{{ route('bayar.cetak',$item->id_kartu) }}" class="btn btn-info" target="_blank">Cetak Bukti</a> </td>
                     </tr>
                     
                     

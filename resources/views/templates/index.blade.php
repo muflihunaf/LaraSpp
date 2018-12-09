@@ -55,7 +55,7 @@
                   <li><a href="{{ route('bayar.index')}}"><i class="fa fa-edit"></i> Pembayaran </a></li>
                   <li><a href="{{ route('home.kelas') }} " ><i class="fa fa-book"></i> Data Kelas </a></li>
                   <li><a href="{{ route('home.tahun') }} " ><i class="fa fa-calendar"></i> Tahun Ajaran </a></li>
-                  {{-- <li><a href="{{ route('rekap') }}"><i class="fa fa-book"></i> laporan </a></li> --}}
+                  <li><a href="{{ route('rekap') }}"><i class="fa fa-book"></i> laporan </a></li>
                   
               </div>
 

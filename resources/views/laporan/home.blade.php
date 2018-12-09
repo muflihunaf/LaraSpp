@@ -3,22 +3,13 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <form action="" method="get">
-                <label for="">Tahun Ajaran</label>
-                <select name="tahun">
-                    @foreach ($tahun as $list)
-                        <option value="{{ $list->id_tahun }} "> {{ $list->tahun }} </option>
-                    @endforeach
-                </select>
-                <label>Kelas</label>
-                <select name="kelas">
-                    @foreach ($kelas as $list)
-                        <option value=" {{ $list->id_kelas }} "> {{ $list->kelas }} </option>
-                    @endforeach
-                </select>
-
-                <button type="submit" class="btn btn-info">Lihat</button>
-
+            <form action=" {{ route('lihat.rekap') }} " method="get">
+                {{-- {{ csrf_field() }} --}}
+                <label for="">Mulai</label>
+                <input type="date" name="mulai" class="">
+                <label for="">Sampai</label>
+                <input type="date" name="sampai" class="">
+                <input type="submit">
             </form>
         </div>
     </div>

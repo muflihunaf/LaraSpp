@@ -34,6 +34,6 @@ Route::get('/kelas/{kelas}/hapus','KelasController@destroy')->name('hapus.kelas'
 Route::get('/kelas/{kelas}/ubah','KelasController@ubah')->name('ubah.kelas');
 Route::post('kelas/{kelas}/update', 'KelasController@update')->name('update.kelas');
 Route::get('/laporan','RekapController@index')->name('rekap');
-Route::get('/laporan/{tahun}/rekap', 'RekapController@lihat')->name('lihat.rekap');
+Route::get('/laporan/rekap', 'RekapController@lihat')->name('lihat.rekap');
 });
 });

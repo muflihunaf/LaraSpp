@@ -5,7 +5,7 @@
     {{-- <link rel="stylesheet" href=" {{ asset('css/bootstrap.css') }} "> --}}
     <title>Cetak Pembayaran</title>
     <style>
-        @page { size: 15cm 14cm;}
+        @page { size: 15cm 8cm;}
         .judul{
             font-size: 20px;
             font-style: bold;

@@ -64,7 +64,7 @@ class PembayaranController extends Controller
     public function cetak($id)
     {
         $cetak = Kartu::find($id)->join('siswa','siswa.id_siswa','=','kartu.id_siswa')->join('tahun_ajaran','kartu.id_tahun','=','tahun_ajaran.id_tahun')->where('id_kartu','=',$id)->get();
-        $pdf->setPaper('a4','potrait');
+        // $pdf->setPaper('a4','potrait');
         $pdf = PDF::loadview('laporan/cetak',compact('cetak'));
 
         return $pdf->stream();

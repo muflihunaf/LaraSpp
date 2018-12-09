@@ -23,7 +23,7 @@
         </div>
     </div>
     <hr>
-    <div class="row" style="">
+    {{-- <div class="row" style="">
         <div class="col-md-12">
             <form action=" {{ route('bayar.daftarulang', $siswa->id_siswa) }} " method="post">
                 {{ csrf_field() }}
@@ -35,7 +35,7 @@
                 <button type="submit">Daftar</button>
             </form>
         </div>
-    </div>
+    </div> --}}
     <div class="row">
         <div class="col-md-12">
             <table class="table table-striped" id="siswa">

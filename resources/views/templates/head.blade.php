@@ -51,6 +51,7 @@
                   <li><a href="{{ route('user.home')}} "><i class="fa fa-home"></i> Home </a>
                   </li>
                   <li><a href="{{ route('lihat.spp', Auth::user()->id_siswa)}} "><i class="fa fa-user"></i> Spp Ku </a></li>
+                  <li><a href=" {{ route('ortu.bayar',Auth::user()->id_siswa) }} "><i class="fa fa-money"></i>Bayar</a></li>
                   
               </div>
 

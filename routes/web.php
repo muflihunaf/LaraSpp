@@ -11,6 +11,8 @@ Auth::routes();
         Route::get('/','UsersiswaController@index')->name('user.home');
         Route::get('{siswa}/spp', 'UsersiswaController@lihat')->name('lihat.spp');
         Route::get('{kartu}/cetak', 'UsersiswaController@cetak')->name('siswa.cetak');
+        Route::get('/{siswa}/bayar','UsersiswaController@bayar')->name('ortu.bayar');
+        Route::post('/bayar', 'UsersiswaController@trans')->name('ortu.lunas');
     });
 Route::middleware('auth')->group(function()
 {
@@ -20,6 +22,9 @@ Route::get('/siswa', 'SiswaController@home')->name('siswa');
 Route::get('export', 'SiswaController@export')->name('export.siswa');
 Route::get('/tahunajaran', 'TahunController@index')->name('home.tahun');
 Route::post('/tahunajaran/tambah', 'TahunController@store')->name('tambah.tahun');
+Route::get('/tahunajaran/{id}/hapus', 'TahunController@hapus')->name('hapus.tahun');
+Route::get('/tahunajaran/{id}/edit', 'TahunController@edit')->name('edit.tahun');
+Route::post('/tahunajaran/{id}/edit', 'TahunController@update')->name('update.tahun');
 Route::post('home/create', 'SiswaController@store')->name('siswa.create');
 Route::get('home/{siswa}/hapus', 'SiswaController@destroy')->name('siswa.delete');
 Route::post('import', 'SiswaController@import')->name('import.siswa');

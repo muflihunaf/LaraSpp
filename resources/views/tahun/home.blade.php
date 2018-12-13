@@ -14,6 +14,7 @@
                         <th>No</th>
                         <th>Tahun</th>
                         <th>Nominal</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,6 +27,10 @@
                         <td> {{ $no++ }}  </td>
                         <td> {{ $list->tahun }} </td>
                         <td> {{ $list->nominal }} </td>
+                        <td>
+                            <a href=" {{ route('edit.tahun',$list->id_tahun) }} " class="btn btn-info">Edit</a>
+                            <a href=" {{ route('hapus.tahun',$list->id_tahun) }} " class="btn btn-danger">Hapus</a>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

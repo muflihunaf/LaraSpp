@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Siswa;
 use App\Kartu;
 use App\TahunAjaran;
+use App\Pembayaran;
 use PDF;
 
 class UsersiswaController extends Controller
@@ -38,5 +39,29 @@ class UsersiswaController extends Controller
         $pdf->setPaper('a4','potrait');
 
         return $pdf->stream();
+    }
+    public function bayar($id)
+    {
+        $status = 'Belum Dibayar';
+        $bulan = Kartu::where('id_siswa','=',$id)->where('status','=',$status)->get();
+        return view('user.bayar',compact('bulan'));
+    }
+    public function trans(Request $request)
+    {
+        $request->validate([
+            'nama' => 'required',
+            'nominal' => 'required|Numeric'
+        ]);
+
+        $bayar = new Pembayaran;
+        $bayar->id_siswa = $request->id_siswa;
+        $bayar->nama = $request->nama;
+        $bayar->nominal = $request->nominal;
+        $bayar->tanggal = $request->tanggal;
+        $bayar->bulan = $request->bulan . '-' . $request->bulan2;
+        $bayar->status = 'Belum Dikonfirmasi';
+        $bayar->save();
+
+        return redirect()->route('user.home');
     }
 }

@@ -23,19 +23,22 @@
         </div>
     </div>
     <hr>
-    {{-- <div class="row" style="">
+    <div class="row">
         <div class="col-md-12">
             <form action=" {{ route('bayar.daftarulang', $siswa->id_siswa) }} " method="post">
                 {{ csrf_field() }}
-                <select name="id_tahun">
+                <div class="col-md-2">
+                <select name="id_tahun" class="form-control">
                     @foreach ($tahun as $ajaran)
                     <option value="{{ $ajaran->id_tahun }} "> {{ $ajaran->tahun }} </option>
                     @endforeach
                 </select>
-                <button type="submit">Daftar</button>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Daftar</button>
             </form>
         </div>
-    </div> --}}
+    </div>
     <div class="row">
         <div class="col-md-12">
             <table class="table table-striped" id="siswa">

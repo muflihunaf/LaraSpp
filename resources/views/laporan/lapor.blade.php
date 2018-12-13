@@ -7,8 +7,38 @@
     <title>Cetak </title>
 </head>
 <body>
-
-    <table>
+<style>
+    *{
+        font-family: arial;
+    }
+    table{
+        margin: 0px auto;
+        border-collapse: collapse;
+        border: 1px solid #3d3d3d;
+    }
+    thead{
+        background-color: #f1f1f1;
+        color:#3d3d3d;
+    }
+    th{
+        padding: 10px;
+    }
+    td{
+        padding: 5px;
+    }
+    .container{
+        margin: 0px auto;
+        max-width: 500px;
+    }
+    .des{
+        margin-top: -20px;
+    }
+</style>
+{{-- <div class="container">
+    <h1 align="center">SMKN 1 DLANGGU</h1>
+    <p class="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste odio placeat explicabo eveniet aut quos adipisci ab doloribus similique vero, iusto maxime rerum corporis iure quo possimus quaerat aspernatur numquam?</p>
+</div> --}}
+    <table border="1px">
         <thead>
         <tr>
             <th>No</th>

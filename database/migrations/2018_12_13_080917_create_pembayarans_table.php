@@ -15,9 +15,12 @@ class CreatePembayaransTable extends Migration
     {
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->increments('id_pembayaran');
-            $table->integer('id_kartu');
+            $table->string('id_siswa');
+            $table->string('nama');
+            $table->string('nominal');
+            $table->string('bulan');
+            $table->string('status');
             $table->date('tanggal');
-            $table->timestamps();
         });
     }
 
@@ -28,6 +31,6 @@ class CreatePembayaransTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pembayarans');
+        Schema::dropIfExists('pembayaran');
     }
 }

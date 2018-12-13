@@ -20,7 +20,7 @@ class RekapController extends Controller
 
     public function lihat(Request $request)
     {
-        $lihat = Kartu::join('siswa', 'siswa.id_siswa','=','kartu.id_siswa')->join('kelas','siswa.id_kelas','=','kelas.id_kelas')->join('tahun_ajaran','kartu.id_tahun','=','tahun_ajaran.id_tahun')->whereBetween('tanggal', [$request->mulai, $request->sampai])->get();
+        $lihat = Kartu::join('siswa', 'siswa.id_siswa','=','kartu.id_siswa')->join('kelas','siswa.id_kelas','=','kelas.id_kelas')->join('tahun_ajaran','kartu.id_tahun','=','tahun_ajaran.id_tahun')->where('status','=','Lunas')->whereBetween('tanggal', [$request->mulai, $request->sampai])->get();
         $pdf = PDF::loadview('laporan/lapor',compact('lihat'));
         $pdf->setPaper('a4','potrait');
         return $pdf->stream();

@@ -140,15 +140,20 @@
         $('#siswa').DataTable();
       })
 
+      function delete(id) {
+        var popup = confirm("Anda Yakin Ingin Mengahapus Data Ini?");
+        var csrf_field = $('meta[name="csrf_token"]').attr('content');
+        if (popup == true){
+          $.ajax({
+            url : " {{ url('') }} "
+          })
+        }
+      }
+
       function eximForm() {
         $('#modal-exim').modal('show');
         $('#modal-exim form')[0].reset();
       }
-    </script>
-    <script>
-    function sweet() {
-      swal("Good Job", "Kau Klik", "success")
-    }
     </script>
   </body>
 </html>

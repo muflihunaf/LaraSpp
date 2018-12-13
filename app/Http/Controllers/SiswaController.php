@@ -23,7 +23,7 @@ class SiswaController extends Controller
     }
     public function export()
     {
-        $siswa = Siswa::select('nisn','nama')->get();
+        $siswa = Siswa::select('nisn','nama','id_kelas')->get();
         return Excel::create('data_siswa', function($excel) use ($siswa)
         {
             $excel->sheet('mysheet', function($sheet) use ($siswa)

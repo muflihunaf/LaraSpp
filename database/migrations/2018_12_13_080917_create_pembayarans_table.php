@@ -16,7 +16,8 @@ class CreatePembayaransTable extends Migration
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->increments('id_pembayaran');
             $table->string('id_siswa');
-            $table->string('nama');
+            $table->string('nama_pengirim');
+            $table->string('gambar');
             $table->string('nominal');
             $table->string('bulan');
             $table->string('status');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\TahunAjaran;
+use Alert;
 class TahunController extends Controller
 {
     public function index()
@@ -18,7 +19,7 @@ class TahunController extends Controller
         $tahun->tahun = $request->tahun;
         $tahun->nominal = $request->nominal;
         $tahun->save();
-
+        Alert::success('Berhasil', 'Berhasil Menambah Data');
         return redirect()->back();
     }
 
@@ -45,6 +46,7 @@ class TahunController extends Controller
 
         if ($tahun){
             $tahun->delete();
+            Alert::success('Berhasil', 'Berhasil Menghapus Data');
             return redirect()->route('home.tahun');
         }
     }

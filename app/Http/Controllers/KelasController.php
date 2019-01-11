@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Kelas;
+use Alert;
 class KelasController extends Controller
 {
     public function index()
@@ -18,6 +19,7 @@ class KelasController extends Controller
         $baru->kelas = $request->kelas;
         $baru->jurusan = $request->jurusan;
         $baru->save();
+        Alert::success('Berhasil', 'Berhasil Menambahkan Data');
         return redirect()->route('home.kelas');
     }
     public function destroy($id)
@@ -26,6 +28,7 @@ class KelasController extends Controller
 
         if ($hapus) {
             $hapus->delete();
+            Alert::success('Berhasil', 'Berhasil Menghapus Data');
             return redirect()->route('home.kelas');
         }
     }

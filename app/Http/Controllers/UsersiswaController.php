@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
-use App\Siswa;
-use App\Kartu;
 use App\TahunAjaran;
 use App\Pembayaran;
+use App\Siswa;
+use App\Kartu;
 use PDF;
+use Alert;
 
 class UsersiswaController extends Controller
 {
@@ -52,16 +54,25 @@ class UsersiswaController extends Controller
             'nama' => 'required',
             'nominal' => 'required|Numeric'
         ]);
-
+        $fileName = time() . '.png';
         $bayar = new Pembayaran;
         $bayar->id_siswa = $request->id_siswa;
-        $bayar->nama = $request->nama;
+        $bayar->nama_pengirim = $request->nama;
         $bayar->nominal = $request->nominal;
         $bayar->tanggal = $request->tanggal;
+        $bayar->gambar = $request->file('gambar')->storeAs('public/images', $fileName);
         $bayar->bulan = $request->bulan . '-' . $request->bulan2;
         $bayar->status = 'Belum Dikonfirmasi';
         $bayar->save();
-
+        Alert::success('Berhasil', 'Permintaan Sedang Diproses');
         return redirect()->route('user.home');
+    }
+    public function confirm(Request $request,$id)
+    {
+        $pembayar = Pembayaran::find($id);
+        $pembayar->status = 'Dikonfirmasi';
+        $pembayar->save();
+        Alert::success('Berhasil', 'Data Sukses Diproses');
+        return redirect()->route('rekap');
     }
 }

@@ -8,6 +8,7 @@ use App\TahunAjaran;
 use App\Siswa;
 Use App\Kelas;
 use App\Kartu;
+use Alert;
 use PDF;
 use DB;
 
@@ -19,8 +20,10 @@ class PembayaranController extends Controller
         ->select('siswa.*','kelas.*')
         ->join('kelas','kelas.id_kelas', '=', 'siswa.id_kelas')
         ->get();
+        $status = 'Belum Dikonfirmasi';
+        $notif = Pembayaran::where('status','=',$status)->get();
 
-        return view('bayar/index', compact('siswa'));
+        return view('bayar/index', compact('siswa','notif'));
     }
 
 
@@ -45,6 +48,7 @@ class PembayaranController extends Controller
             $kartu->tanggal = date('Y-m-d');
             $kartu->save();
         }
+        Alert::success('Success ', 'Berhasil ');
         return redirect()->back();
     }
     public function lunas(Request $request,$id)
@@ -53,6 +57,7 @@ class PembayaranController extends Controller
         $bayar->status = 'Lunas';
         $bayar->tanggal = date('Y-m-d');
         $bayar->save();
+        Alert::success('Success ', 'Berhasil Melakukan Pembayaran');
         // $cetak = Kartu::find($id)->join('siswa','siswa.id_siswa','=','kartu.id_siswa')->join('tahun_ajaran','kartu.id_tahun','=','tahun_ajaran.id_tahun')->where('id_kartu','=',$id)->get();
         // $pdf = PDF::loadview('laporan/cetak',compact('cetak'));
         // $pdf->setPaper('a4','potrait');

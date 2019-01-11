@@ -7,8 +7,7 @@
 </head>
 <body>
 	<div class="box">
-		<div class="sekolah"></div>
-		<div class="logo"></div>
+		
 		<h2>Login Siswa</h2>
 		<form action="{{ route('siswa.login.input') }}" method="post">
             {{ csrf_field() }}

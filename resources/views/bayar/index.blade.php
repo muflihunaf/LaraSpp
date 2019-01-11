@@ -26,7 +26,7 @@
                     <td> {{ $list->nama }} </td>
                     <td> {{ $list->kelas }} </td>
                     <td>
-                        <a href=" {{ route('bayar.daftar', $list->id_siswa) }} " class="btn btn-primary">Bayar</a>                        
+                        <a href=" {{ route('bayar.daftar', $list->id_siswa) }} " class="btn btn-success">Lihat</a>                        
                     </td>
                 </tr>
             @endforeach

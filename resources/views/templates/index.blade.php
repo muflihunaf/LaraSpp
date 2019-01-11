@@ -25,8 +25,9 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="{{ route('home') }} " class="site_title"><i class="fa fa-money"></i> <span>{{ config('app.name') }}</span></a>
-            </div>
+            <a href="{{ route('home') }} " class="site_title"><img src="{{ asset('tampilan/img/logo.png') }}" width="30%" height="40"> <b>Online SIPP</b></a>
+            <hr class="garis">
+          </div>
 
             <div class="clearfix"></div>
 
@@ -77,7 +78,7 @@
               </div>
 
               <ul class="nav navbar-nav navbar-right">
-                <li class="">
+                <li>
                   <a href="" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                     <img src="images/img.jpg" alt="">{{ Auth::user()->name }}
                     <span class=" fa fa-angle-down"></span>
@@ -85,17 +86,36 @@
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     
                     <li>
-                    <a href="{{ route('logout') }}"  onclick="event.preventDefault();  document.getElementById('logout-form').submit();">Logout</a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+                      <a href="{{ route('logout') }}"  onclick="event.preventDefault();  document.getElementById('logout-form').submit();">Logout</a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                     </li>
                   </ul>
+                    <li role="presentation" class="dropdown">
+                      <a href="#" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-envelope-o"></i>
+                           
+
+                      </a>
+                    <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                    <li>
+                      <a>
+                        <span>
+                          <span>Pesan Baru</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                      </ul>
+                          {{-- </li> --}}
                 </li>
               </ul>
             </nav>
           </div>
         </div>
         <!-- /top navigation -->
-
+        @include('sweetalert::alert')
         <!-- page content -->
             <div class="right_col" role="main">
                 @yield('content')
@@ -105,7 +125,11 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            &copy; Smkn 1 Dlanggu
+            <script>
+              var today = new Date();
+              var year = today.getFullYear();
+              document.write("&copy; Smkn 1 Dlanggu " + year);
+            </script>
           </div>
           <div class="clearfix"></div>
         </footer>
@@ -134,21 +158,10 @@
     <script src="{{ asset('assets/js/custom.min.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/dataTables.bootstrap.min.js') }}"></script>
-    <script src="{{ asset('sweetalert2/sweetalert2.min.js') }}"></script>
     <script>
       $(function () {
         $('#siswa').DataTable();
       })
-
-      function delete(id) {
-        var popup = confirm("Anda Yakin Ingin Mengahapus Data Ini?");
-        var csrf_field = $('meta[name="csrf_token"]').attr('content');
-        if (popup == true){
-          $.ajax({
-            url : " {{ url('') }} "
-          })
-        }
-      }
 
       function eximForm() {
         $('#modal-exim').modal('show');

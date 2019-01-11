@@ -24,7 +24,8 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="{{ route('user.home') }} " class="site_title"><i class="fa fa-paw"></i> <span>{{ config('app.name', 'Laravel') }}</span></a>
+              <a href="{{ route('user.home') }} " class="site_title"><img src="{{ asset('tampilan/img/logo.png') }}" width="30%" height="40"> <b>Online SIPP</b></a>
+            <hr class="garis">  
             </div>
 
             <div class="clearfix"></div>
@@ -51,7 +52,7 @@
                   <li><a href="{{ route('user.home')}} "><i class="fa fa-home"></i> Home </a>
                   </li>
                   <li><a href="{{ route('lihat.spp', Auth::user()->id_siswa)}} "><i class="fa fa-user"></i> Spp Ku </a></li>
-                  <li><a href=" {{ route('ortu.bayar',Auth::user()->id_siswa) }} "><i class="fa fa-money"></i>Bayar</a></li>
+                  <li><a href=" {{ route('ortu.bayar',Auth::user()->id_siswa) }} "><i class="fa fa-money"></i> Bayar </a></li>
                   
               </div>
 
@@ -91,7 +92,7 @@
           </div>
         </div>
         <!-- /top navigation -->
-
+        @include('sweetalert::alert')
         <!-- page content -->
             <div class="right_col" role="main">
                 @yield('content')
@@ -101,7 +102,10 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            &copy; Smkn 1 Dlanggu
+            <script>
+              var today = new Date();
+              document.write("&copy; Smkn 1 Dlanggu " + today.getFullYear());
+            </script>
           </div>
           <div class="clearfix"></div>
         </footer>

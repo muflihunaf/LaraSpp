@@ -5,10 +5,10 @@
 <div class="col-md-12">
     <h4>
         <a onclick="eximForm()" class="btn btn-success">Import Data</a>
-        <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#lihat"> Tambah Siswa </button>
+        <a href=" {{ route('siswa.tambah') }} " class="btn btn-primary">Tambah</a>
         </h4>
     </div>
-    @include('siswa/form')
+    
 </div>    
 <div class="row">
     <div class="col-md-12">
@@ -36,8 +36,8 @@
                     <td> {{ $list->kelas }} </td>
                     <td> {{ $list->jurusan }} </td>
                     <td>
-                        <a href="#" class="btn btn-primary">Edit</a>
-                        <a href=" {{ route('siswa.delete', $list->id_siswa) }}"class="btn btn-danger">Hapus</a>
+                        <a href=" {{ route('siswa.edit',$list->id_siswa) }} " class="btn btn-primary">Edit</a>
+                        <a class="btn btn-danger"  data-target="#hapus" data-toggle="modal">Hapus</a>
                     </td>
                 </tr>
             @endforeach
@@ -45,5 +45,5 @@
     </table>
 </div>
 </div>
-
+@include('siswa/form')
 @endsection

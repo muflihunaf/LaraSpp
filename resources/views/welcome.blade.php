@@ -30,7 +30,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">SI SPP</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="{{ asset('landing/img/logo-putih.png') }}" width="80" height="60"></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fas fa-bars"></i>
@@ -43,9 +43,11 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
             </li>
+            
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href=" {{ route('siswa.login') }} ">Login</a>
             </li>
+            
           </ul>
         </div>
       </div>
@@ -55,8 +57,8 @@
     <header class="masthead">
       <div class="container">
         <div class="intro-text">
-          <div class="intro-lead-in">Selamat Datang !</div>
-          <div class="intro-heading text-uppercase">Di Smkn 1 Dlanggu</div>
+          <center><div class="logo"></div></center>
+          <div class="intro-heading text-uppercase">smkn 1 dlanggu</div>
         </div>
       </div>
     </header>
@@ -111,25 +113,26 @@
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <form id="contactForm" name="sentMessage" novalidate="novalidate">
+            <form method="post" action="">
+              {{ csrf_field() }}
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input class="form-control" id="name" type="text" placeholder="Your Name *" required="required" data-validation-required-message="Please enter your name.">
+                    <input class="form-control" id="name" type="text" placeholder="Your Name *" required="required" name="nama">
                     <p class="help-block text-danger"></p>
                   </div>
                   <div class="form-group">
-                    <input class="form-control" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your email address.">
+                    <input class="form-control" id="email" type="email" placeholder="Your Email *" required="required" name="email_kamu">
                     <p class="help-block text-danger"></p>
                   </div>
                   <div class="form-group">
-                    <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number.">
+                    <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" name="phone">
                     <p class="help-block text-danger"></p>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <textarea class="form-control" id="message" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
+                    <textarea class="form-control" id="message" placeholder="Your Message *" required="required" name="message"></textarea>
                     <p class="help-block text-danger"></p>
                   </div>
                 </div>
@@ -150,7 +153,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4">
-            <span class="copyright">Copyright &copy; Your Website 2018</span>
+            <span class="copyright">Copyright &copy; 2018</span>
           </div>
           <div class="col-md-4">
             <ul class="list-inline social-buttons">
@@ -166,7 +169,7 @@
               </li>
               <li class="list-inline-item">
                 <a href="#">
-                  <i class="fab fa-linkedin-in"></i>
+                  <i class="fab fa-instagram"></i>
                 </a>
               </li>
             </ul>

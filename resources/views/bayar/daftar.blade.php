@@ -25,18 +25,8 @@
     <hr>
     <div class="row">
         <div class="col-md-12">
-            <form action=" {{ route('bayar.daftarulang', $siswa->id_siswa) }} " method="post">
-                {{ csrf_field() }}
-                <div class="col-md-2">
-                <select name="id_tahun" class="form-control">
-                    @foreach ($tahun as $ajaran)
-                    <option value="{{ $ajaran->id_tahun }} "> {{ $ajaran->tahun }} </option>
-                    @endforeach
-                </select>
-                </div>
-
-                <button type="submit" class="btn btn-primary">Daftar</button>
-            </form>
+            <a class="btn btn-primary" data-toggle="modal" data-target="#daftar">Daftar</a>
+            @include('bayar.modaldaftar')
         </div>
     </div>
     <div class="row">
@@ -70,11 +60,8 @@
                                 class="btn btn-primary">Bayar</a></td> --}}
                         @if ($item->status == $status)
                         <td>
-                            <form action=" {{ route('bayar.lunas',$item->id_kartu) }} " id="lunas" method="post">
-                                {{ csrf_field() }}
-                                <input type="hidden" name="status" value="Lunas">
-                                <input type="submit" class="btn btn-primary" value="Bayar">
-                            </form>
+                            <a class="btn btn-primary" data-target="#bayar" data-toggle="modal" >Bayar</a>
+                            @include('bayar.modal')
                         </td>
                         @else
                     <td> <a href="{{ route('bayar.cetak',$item->id_kartu) }}" class="btn btn-info" target="_blank">Cetak Bukti</a> </td>
@@ -88,5 +75,4 @@
             </table>
         </div>
     </div>
-
 @endsection

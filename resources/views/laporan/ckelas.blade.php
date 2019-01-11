@@ -34,10 +34,9 @@
         margin-top: -20px;
     }
 </style>
-{{-- <div class="container">
-    <h1 align="center">SMKN 1 DLANGGU</h1>
-    <p class="des">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste odio placeat explicabo eveniet aut quos adipisci ab doloribus similique vero, iusto maxime rerum corporis iure quo possimus quaerat aspernatur numquam?</p>
-</div> --}}
+<div class="container">
+    <h3 align="center">SMKN 1 DLANGGU</h3>
+</div>
     <table border="1px">
         <thead>
         <tr>
@@ -45,9 +44,8 @@
             <th>Nama Siswa</th>
             <th>Bulan</th>
             <th>Kelas</th>
-            <th>Jurusan</th>
+            <th>Status</th>
             <th>Tahun Ajaran</th>
-            <th>tanggal</th>
             </tr>
         </thead>
         <tbody>
@@ -59,17 +57,17 @@
             <td> {{ $no++ . '.' }} </td>
             <td> {{ $list->nama }} </td>
             <td> {{ $list->bulan }} </td> 
-            <td> {{ $list->kelas }} </td> 
-            <td> {{ $list->jurusan }} </td> 
+            <td> {{ $list->kelas }} {{ $list->jurusan }} </td> 
+            <td> {{ $list->status }} </td> 
             <td> {{ $list->tahun }} </td> 
-            <td> {{ $list->tanggal }} </td>
         </tr>
         @endforeach
-        <tr>
-            <td colspan="6">Total Sudah Dibayar</td>
-            <td> <strong> Rp. {{ $duwit }} </strong> </td>
+        <tr style="float:right;">
+            <td colspan="5">Total Belum Dibayar</td>
+            <td> <strong> Rp. {{ $duwit }} </strong></td>
         </tr>
         </tbody>
+        
     </table>
     
 </body>

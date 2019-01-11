@@ -11,17 +11,13 @@
 <form action=" {{ route('update.tahun',$tahun->id_tahun) }} " method="post" class="form-horizontal">
     {{ csrf_field() }}
         <div class="row">
-            <div class="form-group col-md-2">
-                <label for="" class="control-label col-md-6">Tahun</label>
-            </div>
+            <label for="" class="control-label col-md-2">Tahun</label>
             <div class="form-group col-md-10">
                 <input type="text" name="tahun" class="form-control" value="{{ $tahun->tahun }}">
             </div>
         </div>
         <div class="row">
-            <div class="form-group col-md-2">
-                <label for="" class="control-label col-md-6">Nominal</label>
-            </div>
+            <label for="" class="control-label col-md-2">Nominal</label>
             <div class="form-group col-md-10">
                 <input type="text" name="nominal" class="form-control" value="{{ $tahun->nominal }}">
             </div>

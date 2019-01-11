@@ -2,12 +2,14 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title> Login Siswa </title>
+	<title> Login Admin </title>
 	<link rel="stylesheet" type="text/css" href="{{ asset('tampilan/css/style.css')}}">
 	<link rel="stylesheet" href=" {{ asset('css/bootstrap.css') }} ">
 </head>
 <body>
 	<div class="box">
+		<div class="sekolah"></div>
+		<div class="logo"></div>
 		<h2>Login Admin</h2>
 		<form action="{{ route('login') }}" method="post">
             {{ csrf_field() }}

@@ -2,7 +2,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#lihat">Tambah Tahun Ajaran</button>
+            <button type="button"class="btn btn-primary" data-toggle="modal" data-target="#tambah">Tambah Tahun Ajaran</button>
         </div>
         @include('tahun/form')
     </div>
@@ -29,7 +29,8 @@
                         <td> {{ $list->nominal }} </td>
                         <td>
                             <a href=" {{ route('edit.tahun',$list->id_tahun) }} " class="btn btn-info">Edit</a>
-                            <a href=" {{ route('hapus.tahun',$list->id_tahun) }} " class="btn btn-danger">Hapus</a>
+                            <a class="btn btn-danger" data-toggle="modal" data-target="#hapus">Hapus</a>
+                            @include('tahun/modal')
                         </td>
                     </tr>
                     @endforeach

@@ -2,8 +2,23 @@ body{
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;
-	background: url('../img/smk.JPG');
+	background: url('../img/bg.jpg');
 	background-size: cover;
+}
+.sekolah{
+	background: url('../img/sekolah.png');
+	background-size: 100% 100%;
+	width: 110px;
+	height: 90px;
+	float: left;
+}
+.logo{
+	background: url('../img/logo.png');
+	background-size: 100% 100%;
+	width: 110px;
+	height: 90px;
+	margin-top: 5px;
+	float: right;
 }
 .box{
 	position: absolute;
@@ -11,8 +26,8 @@ body{
 	left: 50%;
 	transform: translate(-50%,-50%);
 	width: 400px;
-	padding: 40px;
-	background: rgba(0,0,0,.8);
+	padding: 20px;
+	background: white;
 	box-sizing: border-box;
 	box-shadow: 0 15px 25px rgba(0,0,0,.5);
 	border-radius: 10px;
@@ -20,8 +35,10 @@ body{
 .box h2{
 	margin: 0 0 30px;
 	padding: 0;
-	color: #fff;
+	color: #000;
 	text-align: center;
+	margin-top: 115px;
+	font-family: 'monospace';
 }
 .box .input-box{
 	position: relative;
@@ -30,11 +47,11 @@ body{
 	width: 100%;
 	padding: 10px 0;
 	font-size: 16px;
-	color: #fff;
+	color: #000;
 	letter-spacing: 1px;
 	margin-bottom: 30px;
 	border: none;
-	border-bottom: 1px solid #fff;
+	border-bottom: 1px solid #000;
 	outline: none;
 	background: transparent;
 }
@@ -45,24 +62,37 @@ body{
 	letter-spacing: 1px;
 	padding: 10px 0;
 	font-size: 16px;
-	color: #fff;
+	color: #000;
 	pointer-events: none;
 	transition: .5s;
 }
 .box .input-box input:focus ~ label,
 .box .input-box input:valid ~ label{
-	top: -18px;
+	top: -25px;
 	left: 0;
-	color: #20bb2d;
+	color: #1390c1;
 	font-size: 12px;
+}
+.box .input-box input:focus,
+.box .input-box input:valid{
+	border-bottom: 1px solid #1390c1;
 }
 .box input[type="submit"]{
 	background: transparent;
 	border: none;
 	outline: none;
 	color: #fff;
-	background: #03a9f4;
+	background-image: linear-gradient(to right, #25d0fd, #6160f7, #b524ff);
 	padding: 10px 20px;
 	cursor: pointer;
-	border-radius: 5px;
+	font-size: 16px;
+	border-radius: 25px;
+	width: 100%;
+	-webkit-transition: background-image 2s;
+	transition: background-image 2s;
+}
+.box input[type="submit"]:hover{
+	-webkit-transition: background-image 2s;
+	transition: background-image 2s;
+	background-image: linear-gradient(to right, #b524ff, #6160f7, #25d0fd);
 }

@@ -7,9 +7,7 @@ use App\TahunAjaran;
 use App\Pembayaran;
 use App\Kelas;
 use App\Kartu;
-use App\Siswa;
 use PDF;
-use DB;
 class RekapController extends Controller
 {
     public function index()
